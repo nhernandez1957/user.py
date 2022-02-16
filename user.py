@@ -40,28 +40,18 @@ class User:		# here's what we have so far
             self.account_balance -= amount
             receiver.account_balance += amount
             print("{} balance is {} and {} balance is {}.".format(self.name, self.account_balance, receiver.name, receiver.account_balance))
+        return self
 
 
 guido = User("Guido van Rossum", "guido@python.com")
 monty = User("Monty Python", "monty@python.com")
 nick = User("Nick", "iambroke@gmail.com")
 
-guido.make_deposit(100)
-guido.make_deposit(200) 
-guido.make_deposit(1000)       
-guido.make_withdrawal(25)
-guido.display_user_balance()
+guido.make_deposit(100).make_deposit(200).make_deposit(100).make_deposit(50).make_withdrawal(45).display_user_balance()
 
-monty.make_deposit(50)
-monty.make_deposit(200)
-monty.make_withdrawal(30)
-monty.display_user_balance()
+monty.make_deposit(50).make_deposit(200).make_withdrawal(30).display_user_balance()
 
-nick.make_deposit(20)
-nick.make_withdrawal(5)
-nick.make_withdrawal(10)
-nick.make_withdrawal(10)
-nick.display_user_balance()
+nick.make_deposit(20).make_withdrawal(5).make_withdrawal(10).make_withdrawal(10).display_user_balance()
 
 guido.transfer_money(nick, 30)
 
